@@ -80,7 +80,6 @@ class InputComponent extends Component {
 
   serverAPICall(){
     // test to make sure each element of this.state has a legitimate value before making API call to server
-    console.log("serverAPICall is running:")
     var readyToSend = true;
     for (var i in this.state){
       if (this.state[i] !== 'dollars' && this.state[i] === ''){
@@ -90,6 +89,12 @@ class InputComponent extends Component {
     if (readyToSend === true){
       console.log("here's what will be sent to the server:");
       console.log(this.state);
+      $.post({
+        url: '/api/state',
+        data: JSON.stringify(this.state),
+        contentType: 'application/json',
+        dataType: 'json',
+      });
     }
 
   }
