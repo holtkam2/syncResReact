@@ -9,6 +9,7 @@ class InputComponent extends Component {
       propertyValue: '',
       downPaymentValue: '',
       downPaymentUnit: 'dollars',
+      propertyTaxUnit: 'dollars',
       loanDuration: '',
       interestRate: '',
       propertyTax: '',
@@ -24,40 +25,80 @@ class InputComponent extends Component {
   }
 
   onPropertyValueChange(event) {
-    this.setState({ propertyValue: event.target.value });
+    this.setState(
+        { propertyValue: event.target.value },
+        function () {
+          this.serverAPICall();
+        }
+    )
   }
 
   onDownPaymentValueChange(event) {
-    this.setState({ downPaymentValue: event.target.value });
+    this.setState(
+        { downPaymentValue: event.target.value },
+        function () {
+          this.serverAPICall();
+        }
+    )
   }
 
   onloanDurationChange(event){
-    this.setState({ loanDuration: event.target.value })
+    this.setState(
+        { loanDuration: event.target.value },
+        function () {
+          this.serverAPICall();
+        }
+    )
   }
 
   onInterestRateChange(event){
-    this.setState({ interestRate: event.target.value })
+    this.setState(
+        { interestRate: event.target.value },
+        function () {
+          this.serverAPICall();
+        }
+    )
   }
 
   onPropertyTaxChange(event){
-    this.setState({ propertyTax: event.target.value})
+    this.setState(
+        { propertyTax: event.target.value },
+        function () {
+          this.serverAPICall();
+        }
+    )
   }
 
   onMortgageInsuranceChange(event){
-    this.setState({ mortgageInsurance: event.target.value})
+    this.setState(
+        { mortgageInsurance: event.target.value },
+        function () {
+          this.serverAPICall();
+        }
+    )
   }
 
-  serverAPICall(this.state){
-    // test to make sure each element of this.state has a legitimate value
-    // if so make an API call to your node server.
-    // the server will then make another API call to mlcalc.com and add the results to state.
+  serverAPICall(){
+    // test to make sure each element of this.state has a legitimate value before making API call to server
+    console.log("serverAPICall is running:")
+    var readyToSend = true;
+    for (var i in this.state){
+      if (this.state[i] !== 'dollars' && this.state[i] === ''){
+        readyToSend = false;
+      }
+    }
+    if (readyToSend === true){
+      console.log("here's what will be sent to the server:");
+      console.log(this.state);
+    }
+
   }
 
   render() {
     return (
 
       <div className="InputComponent">
-        <div>Mortgage Payment Calculator</div>
+        <h2>Mortgage Payment Calculator</h2>
         <div>Please enter required information below:</div>
 
         <form className="input-group">
@@ -67,6 +108,7 @@ class InputComponent extends Component {
             fullWidth
             onChange={this.onPropertyValueChange}
             value={this.state.propertyValue}
+
           />
           <TextField
             hintText="any number greater than 0"
