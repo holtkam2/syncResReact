@@ -3,16 +3,14 @@ import { expect } from 'chai';
 import { shallow, mount, render } from 'enzyme';
 
 describe('front end tests', () => {
-  it ('should have a ThemeButton component', () => {
-    let wrapper = shallow(<ThemeButton />)
+  it ('should have a InputComponent', () => {
+    let wrapper = shallow(<InputComponent />)
     expect(wrapper).to.exist;
   })
 
-  describe('SettingsDispContainer container', () => {
-    it ('should have a SettingsDisp container', () => {
-      let wrapper = mount(<SettingsDispContainer />)
-      expect(wrapper).to.exist;
-    })
+  it ('should have a ResultComponent', () => {
+    let wrapper = shallow(<ResultComponent />)
+    expect(wrapper).to.exist;
   })
 
 });
