@@ -14,15 +14,15 @@ class OutputComponent extends Component {
 
     if (this.props.textFieldInputs === undefined){
       return (
-        <div className='OutputComponent'>
+        <div className='OutputComponentBefore'>
           Please enter in all fields above!
         </div>
       );
 
     } else {
       return (
-        <div>
-          This is where the result of the api call will be rendered
+        <div className='OutputComponentAfter'>
+          (This is where the output will go)
         </div>
       )
     }
