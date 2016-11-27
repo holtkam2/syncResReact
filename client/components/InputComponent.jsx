@@ -87,9 +87,7 @@ class InputComponent extends Component {
       }
     }
     if (readyToSend === true){
-      console.log("here's the state object currently:");
-      console.log(this.state);
-      // put it in redux store as well
+      // put it in redux store first
       this.props.sendInputToState(this.state);
       $.post({
         url: '/api/state',
