@@ -1,11 +1,11 @@
 const router = require('express').Router();
-
-const calculate = () => {
-  console.log("calculate function called!")
-}
+var bodyParser = require('body-parser');
 
 router.get('/');
 
-router.post('/api/state', calculate);
+router.post('/api/state', function(req, res){
+  console.log("request handler");
+  console.log(req.body);
+});
 
 module.exports = router;

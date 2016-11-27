@@ -87,7 +87,7 @@ class InputComponent extends Component {
       }
     }
     if (readyToSend === true){
-      console.log("here's what will be sent to the server:");
+      console.log("here's the state object currently:");
       console.log(this.state);
       $.post({
         url: '/api/state',
