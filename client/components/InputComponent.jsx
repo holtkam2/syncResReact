@@ -89,6 +89,8 @@ class InputComponent extends Component {
     if (readyToSend === true){
       console.log("here's the state object currently:");
       console.log(this.state);
+      // put it in redux store as well
+      this.props.sendInputToState(this.state);
       $.post({
         url: '/api/state',
         data: JSON.stringify(this.state),
@@ -96,7 +98,6 @@ class InputComponent extends Component {
         dataType: 'json',
       });
     }
-
   }
 
   render() {
