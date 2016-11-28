@@ -24,6 +24,19 @@ class InputComponent extends Component {
     this.serverAPICall = this.serverAPICall.bind(this);
   }
 
+  componentDidMount() {
+    $.ajax({
+      url: '/api/rates',
+      dataType: 'json',
+      method: 'GET',
+      cache: false,
+      success: (data) => {
+        console.log("here is the json obj from the Zillow API:")
+        console.log(data);
+      },
+    });
+  }
+
   onPropertyValueChange(event) {
     this.setState(
         { propertyValue: event.target.value },
