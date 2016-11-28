@@ -20,6 +20,7 @@ class OutputComponent extends Component {
       );
 
     } else {
+      // this is what is returned if all fields have been entered!
       return (
         <div className='OutputComponentAfter'>
           (This is where the output will go)

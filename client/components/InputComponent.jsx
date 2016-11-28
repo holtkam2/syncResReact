@@ -31,8 +31,8 @@ class InputComponent extends Component {
       method: 'GET',
       cache: false,
       success: (data) => {
-        console.log("here is the json obj from the Zillow API:")
-        console.log(data);
+        // put it in state
+        this.props.storeCurrentRates(data);
       },
     });
   }
@@ -134,7 +134,7 @@ class InputComponent extends Component {
             onChange={this.onDownPaymentValueChange}
             value={this.state.downPaymentValue}
           />
-          <RadioButtonGroup name="downPaymentUnits" defaultSelected="dollars">
+          <RadioButtonGroup name="downPaymentUnits" onChange={this.props.changeDownPaymentUnits} defaultSelected="dollars">
             <RadioButton value="dollars" label="Dollars"/>
             <RadioButton value="percent" label="Percent"/>
           </RadioButtonGroup>
@@ -159,7 +159,7 @@ class InputComponent extends Component {
             onChange={this.onPropertyTaxChange}
             value={this.state.propertyTax}
           />
-          <RadioButtonGroup name="propertyTaxUnits" defaultSelected="dollars">
+          <RadioButtonGroup name="propertyTaxUnits" onChange={this.props.changePropertyTaxUnits} defaultSelected="dollars">
             <RadioButton value="dollars" label="Dollars"/>
             <RadioButton value="percent" label="Percent"/>
           </RadioButtonGroup>
