@@ -14,7 +14,7 @@ class InputComponent extends Component {
       interestRate: '',
       propertyTax: '',
       mortgageInsurance: '',
-      currentRate: 'current rate on a 30yr fixed mortgage: ',
+      currentRate: '',
     };
     this.onPropertyValueChange = this.onPropertyValueChange.bind(this);
     this.onDownPaymentValueChange = this.onDownPaymentValueChange.bind(this);
@@ -114,7 +114,7 @@ class InputComponent extends Component {
 
   render() {
     if (this.props.ratesObj.ratesObjFromZillow !== undefined){
-      this.state.currentRate += this.props.ratesObj.ratesObjFromZillow.response.today.thirtyYearFixed.toString()+"%";
+      this.state.currentRate = "current rate on a 30yr fixed mortgage: "+this.props.ratesObj.ratesObjFromZillow.response.today.thirtyYearFixed.toString()+"%";
     }
 
     return (

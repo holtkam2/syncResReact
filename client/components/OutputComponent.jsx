@@ -21,33 +21,35 @@ class OutputComponent extends Component {
 
   }
 
-  calculateMonthlyPayment(inputsObj){
-    console.log("calculateMonthlyPayment called.");
-    console.log("here is the total loan amount:")
-    console.log(inputsObj.inputFields.inputs.propertyValue);
-    console.log("here is the number of months:")
-    console.log(inputsObj.inputFields.inputs.loanDuration * 12);
-    console.log("here is the interest rate:")
-    console.log(inputsObj.inputFields.inputs.interestRate);
+  calculateMonthlyPayment(){
+    var inputsObj = this.props.textFieldInputs
+    $.ajax({
+      url: '/api/calculate',
+      dataType: 'json',
+      method: 'GET',
+      cache: false,
+      success: (data) => {
+        this.state.paymentBreakdown.totalMonthlyPayment = data.monthlyPayment;
+      },
+    });
   }
 
   render() {
 
-    console.log(this.props.textFieldInputs);
-
     if (this.props.textFieldInputs === undefined){
       return (
         <div className='OutputComponentBefore'>
-          Please enter in all fields above!
+          Please enter in all fields above! To see your results!
         </div>
       );
 
     } else {
       // this is what is returned if all fields have been entered!
-      this.calculateMonthlyPayment(this.props.stateAsProp);
+      this.calculateMonthlyPayment()
       return (
         <div className='OutputComponentAfter'>
-          (This is where the output will go)
+          <h4>Your monthly payment:</h4>
+          <div>{this.state.paymentBreakdown.totalMonthlyPayment}</div>
         </div>
       )
     }

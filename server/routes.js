@@ -1,6 +1,9 @@
 const router = require('express').Router();
 var bodyParser = require('body-parser');
 var request = require('request');
+var amortize = require('amortize');
+var mortgageCalculate = require('mortgage-calculate');
+var userInputs;
 
 router.get('/');
 
@@ -17,8 +20,22 @@ router.get('/api/rates', function (req, res){
 })
 
 router.post('/api/state', function(req, res){
-  console.log("request handler was given this information:");
-  console.log(req.body);
+  userInputs = req.body;
 });
+
+router.get('/api/calculate', function (req, res){
+
+  const result = mortgageCalculate({
+    loanAmount: userInputs.propertyValue,
+    APR: userInputs.interestRate,
+    termYears: userInputs.loanDuration
+  });
+
+  res.status(200).json(result);
+
+})
+
+
+
 
 module.exports = router;
