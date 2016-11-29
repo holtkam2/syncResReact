@@ -36,3 +36,45 @@
   border-color: #D3D3D3;
   border-radius: 3px;
 }
+
+.bar {
+  fill: steelblue;
+}
+
+.bar:hover {
+  fill: brown;
+}
+
+.axis--x path {
+  display: none;
+}
+
+.PaymentBreakdownBar {
+  display: inline-flex;
+  width: 100%;
+  height: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5px;
+}
+
+.PrincipalBar {
+  display: inline;
+  background-color: red;
+}
+
+.InterestBar {
+  display: inline;
+  background-color: purple;
+}
+
+.TaxesBar {
+  display: inline;
+  background-color: green;
+}
+
+.InsuranceBar {
+  display: inline;
+  background-color: yellow;
+}
+

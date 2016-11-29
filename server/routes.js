@@ -8,7 +8,7 @@ var userInputs;
 
 router.get('/');
 
-// now it should make an API call to Zillow to get current mortgage rates
+// it should make an API call to Zillow to get current mortgage rates
 // ZWSID: X1-ZWz19gzbncr40b_4srxq
 router.get('/api/rates', function (req, res){
   var ratesObj;
@@ -20,11 +20,14 @@ router.get('/api/rates', function (req, res){
   })
 })
 
+
 router.post('/api/state', function(req, res){
   userInputs = req.body;
 });
 
 router.get('/api/calculate', function (req, res){
+  // these functions do not take property tax/insurance amount/down payment into account
+  // need to find one that does, or find the raw formulas
   const result = mortgageCalculate({
     loanAmount: userInputs.propertyValue,
     APR: userInputs.interestRate,
