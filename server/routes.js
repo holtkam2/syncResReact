@@ -38,7 +38,7 @@ router.get('/api/calculate', function (req, res){
     amortizeTerm: 1
   });
 
-  console.log(amortizeResult)
+  result.amortizeResult = amortizeResult;
 
   res.status(200).json(result);
 

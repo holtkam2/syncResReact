@@ -30,7 +30,9 @@ class OutputComponent extends Component {
       method: 'GET',
       cache: false,
       success: (data) => {
-        this.state.paymentBreakdown.totalMonthlyPayment = data.monthlyPayment;
+        this.state.paymentBreakdown.totalMonthlyPayment = Math.floor(data.monthlyPayment);
+        this.state.paymentBreakdown.principal = data.amortizeResult.principalRound;
+        this.state.paymentBreakdown.interest = data.amortizeResult.interestRound;
       },
     });
   }
@@ -39,7 +41,7 @@ class OutputComponent extends Component {
     if (this.props.textFieldInputs === undefined){
       return (
         <div className='OutputComponentBefore'>
-          Please enter in all fields above! To see your results!
+          Please enter in all fields above to see your results!
         </div>
       );
 
@@ -49,7 +51,10 @@ class OutputComponent extends Component {
       return (
         <div className='OutputComponentAfter'>
           <h4>Your monthly payment:</h4>
-          <div>{this.state.paymentBreakdown.totalMonthlyPayment}</div>
+          <div>${this.state.paymentBreakdown.totalMonthlyPayment}</div>
+          <h4>Breakdown of the first payment installation:</h4>
+          <p>Interest: ${this.state.paymentBreakdown.interest}</p>
+          <p>Principal: ${this.state.paymentBreakdown.principal}</p>
         </div>
       )
     }
