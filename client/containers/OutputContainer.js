@@ -1,10 +1,9 @@
-// the container for the new component
-
 import { connect } from 'react-redux';
 import OutputComponent from '../components/OutputComponent';
 
 const mapStateToProps = state => ({
   textFieldInputs: state.inputFields.inputs,
+  stateAsProp: state,
 });
 
 const mapDispatchToProps = dispatch => ({

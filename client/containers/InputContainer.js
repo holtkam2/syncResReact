@@ -25,7 +25,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const mapStateToProps = state => ({
-
+  ratesObj: state.ratesObj,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(InputComponent);

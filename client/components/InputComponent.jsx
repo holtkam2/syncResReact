@@ -14,6 +14,7 @@ class InputComponent extends Component {
       interestRate: '',
       propertyTax: '',
       mortgageInsurance: '',
+      currentRate: 'current rate on a 30yr fixed mortgage: ',
     };
     this.onPropertyValueChange = this.onPropertyValueChange.bind(this);
     this.onDownPaymentValueChange = this.onDownPaymentValueChange.bind(this);
@@ -112,6 +113,10 @@ class InputComponent extends Component {
   }
 
   render() {
+    if (this.props.ratesObj.ratesObjFromZillow !== undefined){
+      this.state.currentRate += this.props.ratesObj.ratesObjFromZillow.response.today.thirtyYearFixed.toString()+"%";
+    }
+
     return (
 
       <div className="InputComponent">
@@ -139,14 +144,14 @@ class InputComponent extends Component {
             <RadioButton value="percent" label="Percent"/>
           </RadioButtonGroup>
           <TextField
-            hintText="any number greater than 0"
+            hintText="any number greater than 0. Measured in years."
             floatingLabelText="loan duration"
             fullWidth
             onChange={this.onloanDurationChange}
             value={this.state.loanDuration}
           />
           <TextField
-            hintText="any number greater than 0"
+            hintText={this.state.currentRate}
             floatingLabelText="interest rate"
             fullWidth
             onChange={this.onInterestRateChange}
