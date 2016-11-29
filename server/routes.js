@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var request = require('request');
 var amortize = require('amortize');
 var mortgageCalculate = require('mortgage-calculate');
+var amortize = require('amortize');
 var userInputs;
 
 router.get('/');
@@ -24,18 +25,23 @@ router.post('/api/state', function(req, res){
 });
 
 router.get('/api/calculate', function (req, res){
-
   const result = mortgageCalculate({
     loanAmount: userInputs.propertyValue,
     APR: userInputs.interestRate,
     termYears: userInputs.loanDuration
   });
 
+  const amortizeResult = amortize({
+    amount: userInputs.propertyValue,
+    rate: userInputs.interestRate,
+    totalTerm: userInputs.loanDuration*12,
+    amortizeTerm: 1
+  });
+
+  console.log(amortizeResult)
+
   res.status(200).json(result);
 
 })
-
-
-
 
 module.exports = router;

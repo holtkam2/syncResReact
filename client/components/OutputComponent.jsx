@@ -13,6 +13,7 @@ class OutputComponent extends Component {
         principal: 0,
         interest: 0,
       },
+      textFieldInputs: this.props.textFieldInputs,
     };
     this.calculateMonthlyPayment = this.calculateMonthlyPayment.bind(this);
   }
@@ -35,7 +36,6 @@ class OutputComponent extends Component {
   }
 
   render() {
-
     if (this.props.textFieldInputs === undefined){
       return (
         <div className='OutputComponentBefore'>
