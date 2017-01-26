@@ -1,17 +1,16 @@
 import React from 'react';
-import InputContainer from '../containers/InputContainer';
-import OutputContainer from '../containers/OutputContainer';
-import injectTapEventPlugin from 'react-tap-event-plugin';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-injectTapEventPlugin();
+import DisplayContainer from '../containers/DisplayContainer';
+import OperationsListContainer from '../containers/OperationsListContainer';
+import NumberListContainer from '../containers/NumberListContainer';
+import CalculateButtonContainer from '../containers/CalculateButtonContainer';
 
 const App = () => (
-  <MuiThemeProvider>
-    <div>
-      <InputContainer />
-      <OutputContainer />
+    <div className="calculatorOuterBox">	
+      <DisplayContainer />
+      <OperationsListContainer />
+      <NumberListContainer />
+      <CalculateButtonContainer />
     </div>
-  </MuiThemeProvider>
 );
 
 export default App;
