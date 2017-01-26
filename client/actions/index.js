@@ -19,3 +19,10 @@ export function calculateAnswer(num1, operation, num2) {
 		payload: {num1: num1, operation: operation, num2: num2},
 	};
 }
+
+export function clear() {
+  console.log("clear called in the action dispatcher functino")
+  return {
+    type: 'CLEAR',
+  };
+}

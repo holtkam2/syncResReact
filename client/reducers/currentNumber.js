@@ -9,6 +9,7 @@ const numbers = (state = {currentNumber: "", previousNumber: ""}, action) => {
 
     case 'DISPLAY_ANSWER':
     	var answer;
+    	
     	if (action.payload.operation === "+"){
     		answer = Number(action.payload.num1) + Number(action.payload.num2);
     	} else if (action.payload.operation === "-"){
@@ -18,7 +19,11 @@ const numbers = (state = {currentNumber: "", previousNumber: ""}, action) => {
     	} else if (action.payload.operation === "/"){
     		answer = Number(action.payload.num1) / Number(action.payload.num2);
     	}
+
     	return {currentNumber: answer, previousNumber: answer}
+
+    case 'CLEAR':
+        return {currentNumber: "", previousNumber: ""};
 
     default:
       return state;
