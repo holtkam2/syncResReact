@@ -1,8 +1,12 @@
 import { connect } from 'react-redux';
 import NumberListComponent from '../components/NumberListComponent';
-import {} from '../actions/index';
+import {addNumberToCurrentNum} from '../actions/index';
 
 const mapDispatchToProps = dispatch => ({
+
+	numberButtonClick : (number) => {
+		dispatch(addNumberToCurrentNum(number));
+	}
 
 });
 

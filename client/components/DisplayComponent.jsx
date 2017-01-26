@@ -12,7 +12,7 @@ class DisplayComponent extends Component {
   render() {
 
     return (
-      <div>This is the DisplayComponent!</div>
+      <div>{this.props.currentNumber}</div>
     )
   }
 }

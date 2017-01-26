@@ -4,11 +4,10 @@ import {} from '../actions/index';
 
 const mapDispatchToProps = dispatch => ({
 
-
 });
 
 const mapStateToProps = state => ({
-
+	currentNumber: state.currentNumber,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DisplayComponent);

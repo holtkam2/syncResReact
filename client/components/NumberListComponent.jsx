@@ -3,10 +3,12 @@ import React, { Component, PropTypes } from 'react';
 class NumberListComponent extends Component {
   constructor(props){
     super(props);
+    this.onNumberButtonClick = this.onNumberButtonClick.bind(this);
   }
 
-  componentDidMount() {
-  
+  onNumberButtonClick(number){
+    console.log(number);
+    this.props.numberButtonClick(number);
   }
 
   render() {
@@ -14,22 +16,22 @@ class NumberListComponent extends Component {
     return (
       <div className="numberButtonBox">
         <div>
-          <button>1</button>
-          <button>2</button>
-          <button>3</button>
+          <button onClick={() => {this.onNumberButtonClick(1)}}>1</button>
+          <button onClick={() => {this.onNumberButtonClick(2)}}>2</button>
+          <button onClick={() => {this.onNumberButtonClick(3)}}>3</button>
         </div>
         <div>
-          <button>4</button>
-          <button>5</button>
-          <button>6</button>
+          <button onClick={() => {this.onNumberButtonClick(4)}}>4</button>
+          <button onClick={() => {this.onNumberButtonClick(5)}}>5</button>
+          <button onClick={() => {this.onNumberButtonClick(6)}}>6</button>
         </div>
         <div>
-          <button>7</button>
-          <button>8</button>
-          <button>9</button>
+          <button onClick={() => {this.onNumberButtonClick(7)}}>7</button>
+          <button onClick={() => {this.onNumberButtonClick(8)}}>8</button>
+          <button onClick={() => {this.onNumberButtonClick(9)}}>9</button>
         </div>
-          <button>0</button>
-          <button>.</button>
+          <button onClick={() => {this.onNumberButtonClick(0)}}>0</button>
+          <button onClick={() => {this.onNumberButtonClick(".")}}>.</button>
       </div>
     )
   }
