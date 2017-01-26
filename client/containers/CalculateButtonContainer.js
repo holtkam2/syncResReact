@@ -1,8 +1,12 @@
 import { connect } from 'react-redux';
 import CalculateButtonComponent from '../components/CalculateButtonComponent';
-import {} from '../actions/index';
+import {calculateAnswer} from '../actions/index';
 
 const mapDispatchToProps = dispatch => ({
+
+	calculateAnswer : (num1, operation, num2) => {
+		dispatch(calculateAnswer(num1, operation, num2));
+	}
 
 });
 

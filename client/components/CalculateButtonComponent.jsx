@@ -11,8 +11,7 @@ class CalculateButtonComponent extends Component {
   }
 
   onEqualsButtonClick(num1, operation, num2){
-    console.log("equals buttons was clicked");
-    console.log(num1, operation, num2);
+    this.props.calculateAnswer(num1, operation, num2);
   }
 
   render() {

@@ -12,3 +12,10 @@ export function addOperation(operation) {
   	payload: operation,
   };
 }
+
+export function calculateAnswer(num1, operation, num2) {
+	return {
+		type: 'DISPLAY_ANSWER',
+		payload: {num1: num1, operation: operation, num2: num2},
+	};
+}
