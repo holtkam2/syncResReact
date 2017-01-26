@@ -1,10 +1,12 @@
-const currentNumber = (state = "", action) => {
+const numbers = (state = {currentNumber: "", previousNumber: ""}, action) => {
   switch (action.type) {
     case 'ADD_NUM_TO_CURRENTNUM':
-      return state+action.payload.toString();
+      console.log("ADD_NUM_TO_CURRENTNUM heard in currentNumber reducer")
+    case 'ADD_OPERATION':
+    	console.log("ADD_OPERATION heard in currentNumber reducer")
     default:
       return state;
   }
 };
 
-export default currentNumber;
+export default numbers;

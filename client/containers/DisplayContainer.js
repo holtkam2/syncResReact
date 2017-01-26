@@ -7,7 +7,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const mapStateToProps = state => ({
-	currentNumber: state.currentNumber,
+	currentNumber: state.numbers.currentNumber,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DisplayComponent);

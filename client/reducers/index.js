@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import currentNumber from './currentNumber';
+import numbers from './currentNumber';
 import currentOperation from './currentOperation'
 
 const reducers = combineReducers({
-	currentNumber,
+	numbers,
 	currentOperation,
 });
 
