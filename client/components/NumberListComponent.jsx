@@ -7,7 +7,6 @@ class NumberListComponent extends Component {
   }
 
   onNumberButtonClick(number){
-    console.log(number);
     this.props.numberButtonClick(number);
   }
 

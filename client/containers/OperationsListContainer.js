@@ -1,8 +1,12 @@
 import { connect } from 'react-redux';
 import OperationsListComponent from '../components/OperationsListComponent';
-import {} from '../actions/index';
+import {addOperation} from '../actions/index';
 
 const mapDispatchToProps = dispatch => ({
+
+	operationButtonClick: (operation) => {
+		dispatch(addOperation(operation));
+	}
 
 });
 
