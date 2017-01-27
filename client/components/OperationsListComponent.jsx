@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import FlatButton from 'material-ui/FlatButton';
 
 class OperationsListComponent extends Component {
   constructor(props){
@@ -18,10 +19,10 @@ class OperationsListComponent extends Component {
 
     return (
       <div className="numberListComponent">
-        <button onClick={() => {this.onOperationButtonClick("/")}}>/</button>
-        <button onClick={() => {this.onOperationButtonClick("*")}}>*</button>
-        <button onClick={() => {this.onOperationButtonClick("-")}}>-</button>
-        <button onClick={() => {this.onOperationButtonClick("+")}}>+</button>
+        <FlatButton label="/" onClick= {() => {this.onOperationButtonClick("/")}}/>
+        <FlatButton label="*" onClick= {() => {this.onOperationButtonClick("*")}}/>
+        <FlatButton label="-" onClick= {() => {this.onOperationButtonClick("-")}}/>
+        <FlatButton label="+" onClick= {() => {this.onOperationButtonClick("+")}}/>
       </div>
     )
   }

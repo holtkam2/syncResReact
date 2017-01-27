@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import FlatButton from 'material-ui/FlatButton';
 
 class NumberListComponent extends Component {
   constructor(props){
@@ -15,22 +16,22 @@ class NumberListComponent extends Component {
     return (
       <div className="numberButtonBox">
         <div>
-          <button onClick={() => {this.onNumberButtonClick(1)}}>1</button>
-          <button onClick={() => {this.onNumberButtonClick(2)}}>2</button>
-          <button onClick={() => {this.onNumberButtonClick(3)}}>3</button>
+          <FlatButton label="1" rippleColor="blue" onClick= {() => {this.onNumberButtonClick(1)}}/>
+          <FlatButton label="2" rippleColor="yellow" onClick= {() => {this.onNumberButtonClick(2)}}/>
+          <FlatButton label="3" rippleColor="red" onClick= {() => {this.onNumberButtonClick(3)}}/>
         </div>
         <div>
-          <button onClick={() => {this.onNumberButtonClick(4)}}>4</button>
-          <button onClick={() => {this.onNumberButtonClick(5)}}>5</button>
-          <button onClick={() => {this.onNumberButtonClick(6)}}>6</button>
+          <FlatButton label="4" rippleColor="pink" onClick= {() => {this.onNumberButtonClick(4)}}/>
+          <FlatButton label="5" rippleColor="purple" onClick= {() => {this.onNumberButtonClick(5)}}/>
+          <FlatButton label="6" rippleColor="orange" onClick= {() => {this.onNumberButtonClick(6)}}/>
         </div>
         <div>
-          <button onClick={() => {this.onNumberButtonClick(7)}}>7</button>
-          <button onClick={() => {this.onNumberButtonClick(8)}}>8</button>
-          <button onClick={() => {this.onNumberButtonClick(9)}}>9</button>
+          <FlatButton label="7" rippleColor="red" onClick= {() => {this.onNumberButtonClick(7)}}/>
+          <FlatButton label="8" rippleColor="yellow" onClick= {() => {this.onNumberButtonClick(8)}}/>
+          <FlatButton label="9" rippleColor="orange" onClick= {() => {this.onNumberButtonClick(9)}}/>
         </div>
-          <button onClick={() => {this.onNumberButtonClick(0)}}>0</button>
-          <button onClick={() => {this.onNumberButtonClick(".")}}>.</button>
+          <FlatButton label="0" rippleColor="green" onClick= {() => {this.onNumberButtonClick(0)}}/>
+          <FlatButton label="." rippleColor="blue" onClick= {() => {this.onNumberButtonClick(".")}}/>
       </div>
     )
   }

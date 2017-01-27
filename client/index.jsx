@@ -7,6 +7,10 @@ import promise from 'redux-promise';
 import createLogger from 'redux-logger';
 import App from './components/App.jsx';
 import reducer from './reducers/index.js';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
+injectTapEventPlugin();
 
 const logger = createLogger();
 const store = createStore(
@@ -14,9 +18,12 @@ const store = createStore(
   applyMiddleware(thunk, promise, logger),
 );
 
-render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+render(	
+	
+	<MuiThemeProvider>
+	  <Provider store={store}>
+	    <App />
+	  </Provider>
+	</MuiThemeProvider>,
   document.getElementById('app')
 );

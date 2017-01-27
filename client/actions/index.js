@@ -21,7 +21,6 @@ export function calculateAnswer(num1, operation, num2) {
 }
 
 export function clear() {
-  console.log("clear called in the action dispatcher functino")
   return {
     type: 'CLEAR',
   };
