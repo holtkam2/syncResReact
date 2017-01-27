@@ -1,29 +1,41 @@
-const numbers = (state = {currentNumber: "", previousNumber: ""}, action) => {
-  switch (action.type) {
+const numbers = (state = {currentNumber: "", previousNumber: "", pastNumbers: {}}, action) => {
+
+    switch (action.type) {
 
     case 'ADD_NUM_TO_CURRENTNUM':
-      return {currentNumber: state.currentNumber+=action.payload, previousNumber: state.previousNumber}
+      return {currentNumber: state.currentNumber+=action.payload, previousNumber: state.previousNumber, pastNumbers: state.pastNumbers}
 
     case 'ADD_OPERATION':
-    	return {currentNumber: "", previousNumber: state.currentNumber}
+    	return {currentNumber: "", previousNumber: state.currentNumber, pastNumbers: state.pastNumbers}
 
-    case 'DISPLAY_ANSWER':
+    case 'CALCULATE_ANSWER':
     	var answer;
+        var num1 = action.payload.num1;
+        var num2 = action.payload.num2;
+        var operation = action.payload.operation;
+
+        var argsToMemoize = num1+operation+num2;
+
+        if (state.pastNumbers[argsToMemoize]){
+            return {currentNumber: state.pastNumbers[argsToMemoize], previousNumber: state.pastNumbers[argsToMemoize], pastNumbers: state.pastNumbers}
+        }
     	
-    	if (action.payload.operation === "+"){
-    		answer = Number(action.payload.num1) + Number(action.payload.num2);
-    	} else if (action.payload.operation === "-"){
-    		answer = Number(action.payload.num1) - Number(action.payload.num2);
-    	} else if (action.payload.operation === "*"){
-    		answer = Number(action.payload.num1) * Number(action.payload.num2);
-    	} else if (action.payload.operation === "/"){
-    		answer = Number(action.payload.num1) / Number(action.payload.num2);
+    	if (operation === "+"){
+    		answer = Number(num1) + Number(num2);
+    	} else if (operation === "-"){
+    		answer = Number(num1) - Number(num2);
+    	} else if (operation === "*"){
+    		answer = Number(num1) * Number(num2);
+    	} else if (operation === "/"){
+    		answer = Number(num1) / Number(num2);
     	}
 
-    	return {currentNumber: answer, previousNumber: answer}
+        state.pastNumbers[argsToMemoize] = answer;
+
+    	return {currentNumber: answer, previousNumber: answer, pastNumbers: state.pastNumbers }
 
     case 'CLEAR':
-        return {currentNumber: "", previousNumber: ""};
+        return {currentNumber: "", previousNumber: "", pastNumbers: state.pastNumbers};
 
     default:
       return state;

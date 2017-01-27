@@ -17,7 +17,7 @@ class CalculateButtonComponent extends Component {
   render() {
 
     return (
-      <div>
+      <div className="CalculateButtonComponent">
         <button onClick={() => {this.onEqualsButtonClick(this.props.previousNumber, this.props.operation, this.props.currentNumber)}}>=</button>
         <button onClick={() => {this.props.clear()}}>clear</button>
       </div>

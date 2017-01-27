@@ -17,7 +17,7 @@ class OperationsListComponent extends Component {
   render() {
 
     return (
-      <div>
+      <div className="numberListComponent">
         <button onClick={() => {this.onOperationButtonClick("/")}}>/</button>
         <button onClick={() => {this.onOperationButtonClick("*")}}>*</button>
         <button onClick={() => {this.onOperationButtonClick("-")}}>-</button>
