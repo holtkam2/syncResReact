@@ -1,6 +1,5 @@
 .calculatorOuterBox {
 	text-align: center;
-	margin: auto;
 	width: 50%;
 	border: 3px solid green;
 	padding: 10px;
@@ -13,13 +12,12 @@
 	border: 3px solid blue;
 	padding: 20px;
 	font-family: 'Roboto', sans-serif;
+	border-radius: 10px;
 }
 .DisplayComponent {
-	background-color: grey;
-	color: white;
+	color: black;
 	margin: auto;
 	width: 75%;
-	border: 3px solid black;
 	padding: 20px;
 	height: 30px;
 	font-family: 'Roboto', sans-serif;
@@ -32,6 +30,7 @@
 	height: 25px;
 	font-family: 'Roboto', sans-serif;
 	font-size: 20;
+	border-radius: 10px;
 }
 .calculateButtonComponent {
 	margin: 10px auto 10px auto;
@@ -40,4 +39,5 @@
 	padding: 20px;
 	height: 25px;
 	font-family: 'Roboto', sans-serif;
+	border-radius: 10px;
 }
