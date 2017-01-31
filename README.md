@@ -1,1 +1,1 @@
-# mortgage-calculator
+# react-redux calculator 
