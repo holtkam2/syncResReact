@@ -8,7 +8,6 @@ import createLogger from 'redux-logger';
 import App from './components/App.jsx';
 import reducer from './reducers/index.js';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 injectTapEventPlugin();
 
@@ -19,11 +18,8 @@ const store = createStore(
 );
 
 render(	
-	
-	<MuiThemeProvider>
-	  <Provider store={store}>
-	    <App />
-	  </Provider>
-	</MuiThemeProvider>,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById('app')
 );

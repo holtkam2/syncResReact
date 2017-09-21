@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
-import numbers from './currentNumber';
-import currentOperation from './currentOperation'
+import inputParams from './inputParamsReducer';
+import results from './resultsReducer';
+import images from './imagesReducer';
 
 const reducers = combineReducers({
-	numbers,
-	currentOperation,
+	inputParams,
+	results,
+	images
 });
 
 export default reducers;

@@ -1,0 +1,22 @@
+{
+  "name": "jasons-app",
+  "description": "",
+  "main": "client/index.html",
+  "authors": [
+    "Holtkamp",
+    "Jason <jholtkamp@conversantmedia.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/holtkam2/mortgage-calculator",
+  "private": true,
+  "devDependencies":{
+    "clarity-ui" : "http://stash.cnvrmedia.net/scm/gui/clarity-ui.git#{version}"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

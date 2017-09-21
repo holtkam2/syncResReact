@@ -1,18 +1,17 @@
 import React from 'react';
-import DisplayContainer from '../containers/DisplayContainer';
-import OperationsListContainer from '../containers/OperationsListContainer';
-import NumberListContainer from '../containers/NumberListContainer';
-import CalculateButtonContainer from '../containers/CalculateButtonContainer';
-import Paper from 'material-ui/Paper';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import Results1Container from '../containers/Results1Container';
+import InputContainer from '../containers/InputContainer';
+import Results2Container from '../containers/Results2Container';
 
 const App = () => (
-	
-  <div className="calculatorOuterBox">
-    <DisplayContainer />
-    <OperationsListContainer />
-    <NumberListContainer />
-    <CalculateButtonContainer />
-  </div>
+	<MuiThemeProvider>
+	  <div className="appOuterBox">
+	  	<InputContainer />
+	  	<Results1Container />
+	  	<Results2Container />
+	  </div>
+  </MuiThemeProvider>
 
 );
 
